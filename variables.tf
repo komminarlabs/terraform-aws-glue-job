@@ -99,7 +99,7 @@ variable "trigger_type" {
 variable "worker_type" {
   type        = string
   default     = null
-  description = "The type of predefined worker that is allocated when the job runs"
+  description = "The type ('Standard' or 'G.1X' or 'G.2X') of predefined worker that is allocated when the job runs"
 
   validation {
     condition     = var.worker_type == null || var.worker_type == "Standard" || var.worker_type == "G.1X" || var.worker_type == "G.2X"

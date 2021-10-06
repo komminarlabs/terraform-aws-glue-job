@@ -50,7 +50,7 @@ module "example_glue_job" {
 | schedule_active | Whether the glue trigger should be active | bool | true | no |
 | script_location | The S3 path to the script that is executed by the job | string | n/a | yes |
 | trigger_type | The type ('ON_DEMAND' or 'SCHEDULED') of the trigger | string | null | no |
-| worker_type | The type of predefined worker that is allocated when the job runs | string | null | n0 |
+| worker_type | The type ('Standard' or 'G.1X' or 'G.2X') of predefined worker that is allocated when the job runs | string | null | no |
 | tags | A mapping of tags to assign to all resources | map(string) | n/a | yes |
 
 ## Outputs
