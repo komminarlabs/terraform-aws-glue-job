@@ -9,11 +9,11 @@ output "id" {
 }
 
 output "trigger_arn" {
-  value       = aws_glue_trigger.default.arn
+  value       = try(aws_glue_trigger.default.arn, null)
   description = "The Glue trigger ARN"
 }
 
 output "trigger_id" {
-  value       = aws_glue_trigger.default.id
+  value       = try(aws_glue_trigger.default.id, null)
   description = "The Glue trigger name"
 }

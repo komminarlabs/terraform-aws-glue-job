@@ -1,7 +1,3 @@
-locals {
-  trigger_actions = var.trigger_actions == {} && (var.trigger_type == "ON_DEMAND" || var.trigger_type == "SCHEDULED") ? { job_name = aws_glue_job.default.name } : var.trigger_actions
-}
-
 data "aws_iam_policy_document" "default" {
   statement {
     actions = [
@@ -22,10 +18,10 @@ resource "aws_iam_role" "default" {
 }
 
 resource "aws_iam_role_policy" "default" {
-  count  = var.role_arn == null ? 1 : 0
+  count  = var.role_arn == null && var.role_policy != null ? 1 : 0
   name   = "GlueRole-${var.name}"
   role   = aws_iam_role.default[0].id
-  policy = var.policy
+  policy = var.role_policy
 }
 
 resource "aws_iam_role_policy_attachment" "default" {
@@ -54,11 +50,14 @@ resource "aws_glue_job" "default" {
 }
 
 resource "aws_glue_trigger" "default" {
-  name      = var.name
-  actions   = local.trigger_actions
-  enabled   = var.schedule_active
-  predicate = var.trigger_predicate
-  schedule  = var.schedule
-  type      = var.trigger_type
-  tags      = var.tags
+  count    = var.trigger_type != null ? 1 : 0
+  name     = var.name
+  enabled  = var.schedule_active
+  schedule = var.schedule
+  type     = var.trigger_type
+  tags     = var.tags
+
+  actions {
+    job_name = aws_glue_job.default.name
+  }
 }
