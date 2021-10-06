@@ -7,3 +7,13 @@ output "id" {
   value       = aws_glue_job.default.id
   description = "The Glue job name"
 }
+
+output "trigger_arn" {
+  value       = aws_glue_trigger.default.arn
+  description = "The Glue trigger ARN"
+}
+
+output "trigger_id" {
+  value       = aws_glue_trigger.default.id
+  description = "The Glue trigger name"
+}

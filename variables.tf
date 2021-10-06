@@ -7,6 +7,11 @@ variable "command_name" {
   type        = string
   default     = "glueetl"
   description = "The name of the job command. Defaults to glueetl"
+
+  validation {
+    condition     = var.command_name == "glueetl" || var.command_name == "pythonshell" || var.command_name == "gluestreaming"
+    error_message = "For an Apache Spark ETL job, this must be glueetl. For a Python shell job, it must be pythonshell. For an Apache Spark streaming ETL job, this must be gluestreaming"
+  }
 }
 
 variable "connections" {
@@ -23,13 +28,13 @@ variable "default_arguments" {
 
 variable "glue_version" {
   type        = string
-  default     = "1.0"
+  default     = "2.0"
   description = "The Glue version to use"
 }
 
 variable "max_capacity" {
   type        = number
-  default     = 10
+  default     = null
   description = "The maximum number of data processing units that can be allocated"
 }
 
@@ -39,10 +44,16 @@ variable "max_retries" {
   description = "The maximum number of times to retry a failing job"
 }
 
+variable "number_of_workers" {
+  type        = string
+  default     = null
+  description = "The number of workers that are allocated when the job runs"
+}
+
 variable "policy" {
   type        = string
   default     = null
-  description = "A valid Glue policy JSON document"
+  description = "A valid Glue IAM policy JSON document"
 }
 
 variable "python_version" {
@@ -71,13 +82,36 @@ variable "schedule_active" {
 
 variable "script_location" {
   type        = string
-  description = "Specifies the S3 path to the script that is executed by this job"
+  description = "Specifies the S3 path to the script that is executed by the job"
 }
 
-variable "type" {
+variable "trigger_actions" {
+  type        = map(string)
+  default     = {}
+  description = "A map with actions initiated by the trigger"
+}
+
+variable "trigger_predicate" {
+  type        = map(string)
+  default     = {}
+  description = "A map with predicate for the trigger"
+}
+
+variable "trigger_type" {
   type        = string
   default     = "SCHEDULED"
   description = "The type ('CONDITIONAL' or 'ON_DEMAND' or 'SCHEDULED') of the trigger"
+
+  validation {
+    condition     = var.trigger_type == "CONDITIONAL" || var.trigger_type == "ON_DEMAND" || var.trigger_type == "SCHEDULED"
+    error_message = "Valid values are CONDITIONAL, ON_DEMAND, and SCHEDULED"
+  }
+}
+
+variable "worker_type" {
+  type        = string
+  default     = null
+  description = "The type of predefined worker that is allocated when the job runs"
 }
 
 variable "tags" {
