@@ -10,7 +10,7 @@ variable "command_name" {
 
   validation {
     condition     = var.command_name == "glueetl" || var.command_name == "pythonshell" || var.command_name == "gluestreaming"
-    error_message = "For an Apache Spark ETL job, this must be glueetl. For a Python shell job, it must be pythonshell. For an Apache Spark streaming ETL job, this must be gluestreaming"
+    error_message = "For an Apache Spark ETL job, this must be glueetl. For a Python shell job, it must be pythonshell. For an Apache Spark streaming ETL job, this must be gluestreaming."
   }
 }
 
@@ -104,7 +104,7 @@ variable "trigger_type" {
 
   validation {
     condition     = var.trigger_type == "CONDITIONAL" || var.trigger_type == "ON_DEMAND" || var.trigger_type == "SCHEDULED"
-    error_message = "Valid values are CONDITIONAL, ON_DEMAND, and SCHEDULED"
+    error_message = "Valid values are CONDITIONAL, ON_DEMAND, and SCHEDULED."
   }
 }
 
