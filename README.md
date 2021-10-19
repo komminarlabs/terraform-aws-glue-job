@@ -1,5 +1,7 @@
 # terraform-aws-glue-job
 
+Terraform module to create and manage a AWS Glue job
+
 <!--- BEGIN_TF_DOCS --->
 ## Requirements
 
