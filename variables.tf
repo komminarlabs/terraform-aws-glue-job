@@ -28,7 +28,7 @@ variable "default_arguments" {
 
 variable "glue_version" {
   type        = string
-  default     = "2.0"
+  default     = "4.0"
   description = "The Glue version to use"
 }
 
@@ -72,6 +72,12 @@ variable "schedule" {
   type        = string
   default     = null
   description = "A cron expression used to specify the schedule for the glue trigger"
+}
+
+variable "security_configuration" {
+  type        = string
+  default     = null
+  description = "The name of the Security Configuration to be associated with the job"
 }
 
 variable "schedule_active" {
