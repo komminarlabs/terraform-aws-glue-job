@@ -71,6 +71,7 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [aws_cloudwatch_log_group.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) | resource |
 | [aws_glue_job.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/glue_job) | resource |
 | [aws_glue_trigger.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/glue_trigger) | resource |
 | [aws_iam_role.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
@@ -89,6 +90,7 @@ No modules.
 | <a name="input_connections"></a> [connections](#input\_connections) | A list with connections for this job | `list(string)` | `[]` | no |
 | <a name="input_default_arguments"></a> [default\_arguments](#input\_default\_arguments) | A map with default arguments for the job | `map(string)` | `{}` | no |
 | <a name="input_glue_version"></a> [glue\_version](#input\_glue\_version) | The Glue version to use | `string` | `"4.0"` | no |
+| <a name="input_log_retention_days"></a> [log\_retention\_days](#input\_log\_retention\_days) | The cloudwatch log group retention in days | `number` | `90` | no |
 | <a name="input_max_capacity"></a> [max\_capacity](#input\_max\_capacity) | The maximum number of data processing units that can be allocated | `number` | `null` | no |
 | <a name="input_max_retries"></a> [max\_retries](#input\_max\_retries) | The maximum number of times to retry the failing job | `number` | `0` | no |
 | <a name="input_number_of_workers"></a> [number\_of\_workers](#input\_number\_of\_workers) | The number of workers that are allocated when the job runs | `string` | `null` | no |
