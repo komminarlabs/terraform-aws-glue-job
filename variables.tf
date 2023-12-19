@@ -32,6 +32,12 @@ variable "glue_version" {
   description = "The Glue version to use"
 }
 
+variable "log_retention_days" {
+  type        = number
+  description = "The cloudwatch log group retention in days"
+  default     = 90
+}
+
 variable "max_capacity" {
   type        = number
   default     = null

@@ -1,7 +1,6 @@
 resource "aws_glue_job" "default" {
   name                   = var.name
   connections            = var.connections
-  default_arguments      = var.default_arguments
   glue_version           = var.glue_version
   max_capacity           = var.max_capacity
   max_retries            = var.max_retries
@@ -16,6 +15,11 @@ resource "aws_glue_job" "default" {
     python_version  = var.python_version
     script_location = var.script_location
   }
+
+  default_arguments = merge({
+    "--continuous-log-logGroup" : aws_cloudwatch_log_group.default.name,
+    "--enable-continuous-cloudwatch-log" : "true",
+  }, var.default_arguments)
 }
 
 resource "aws_glue_trigger" "default" {
