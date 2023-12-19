@@ -90,7 +90,8 @@ No modules.
 | <a name="input_connections"></a> [connections](#input\_connections) | A list with connections for this job | `list(string)` | `[]` | no |
 | <a name="input_default_arguments"></a> [default\_arguments](#input\_default\_arguments) | A map with default arguments for the job | `map(string)` | `{}` | no |
 | <a name="input_glue_version"></a> [glue\_version](#input\_glue\_version) | The Glue version to use | `string` | `"4.0"` | no |
-| <a name="input_log_retention_days"></a> [log\_retention\_days](#input\_log\_retention\_days) | The cloudwatch log group retention in days | `number` | `90` | no |
+| <a name="input_kms_key_id"></a> [kms\_key\_id](#input\_kms\_key\_id) | The kms key id of the AWS KMS Customer Managed Key to be used to encrypt the log data | `string` | `null` | no |
+| <a name="input_log_retention_days"></a> [log\_retention\_days](#input\_log\_retention\_days) | The cloudwatch log group retention in days | `number` | `365` | no |
 | <a name="input_max_capacity"></a> [max\_capacity](#input\_max\_capacity) | The maximum number of data processing units that can be allocated | `number` | `null` | no |
 | <a name="input_max_retries"></a> [max\_retries](#input\_max\_retries) | The maximum number of times to retry the failing job | `number` | `0` | no |
 | <a name="input_number_of_workers"></a> [number\_of\_workers](#input\_number\_of\_workers) | The number of workers that are allocated when the job runs | `string` | `null` | no |
