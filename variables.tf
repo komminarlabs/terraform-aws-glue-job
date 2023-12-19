@@ -32,6 +32,18 @@ variable "glue_version" {
   description = "The Glue version to use"
 }
 
+variable "kms_key_id" {
+  type        = string
+  default     = null
+  description = "The kms key id of the AWS KMS Customer Managed Key to be used to encrypt the log data"
+}
+
+variable "log_retention_days" {
+  type        = number
+  description = "The cloudwatch log group retention in days"
+  default     = 365
+}
+
 variable "max_capacity" {
   type        = number
   default     = null
