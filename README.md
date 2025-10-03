@@ -2,6 +2,20 @@
 
 Terraform module to create and manage a AWS Glue job
 
+## ⚠️ Deprecation Notice
+
+This module is **deprecated** and is no longer actively maintained as of **October 2025**.  
+
+- Do **not** use this module for new projects.  
+- Existing deployments may continue to work, but **no further updates, fixes, or support will be provided**.  
+- The repository has been archived and remains public for reference only.  
+
+### Recommended Alternatives
+
+For a maintained and actively developed alternative, consider using:
+
+- [terraform-aws-mcaf-glue-job](https://github.com/schubergphilis/terraform-aws-mcaf-glue-job)
+
 <!--- BEGIN_TF_DOCS --->
 ## Requirements
 
